@@ -6,7 +6,7 @@ var Movie = React.createClass({ // nie kumam jak chcę się posłużyć tą klas
 
 	render: function() {
 		return (
-			React.createElement('div', {key: image.id},
+			React.createElement('div', {image_id}, //dlaczego tutaj jest not defined?? przecież jest defined w 25 np linijce
 				React.createElement('h2', {}, this.props.image.name),
 				React.createElement('img', {src: this.props.image.src})
 			)
