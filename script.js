@@ -1,26 +1,12 @@
-var GalleryItem = React.createClass({
+
+var Movie = React.createClass({ // nie kumam jak chcę się posłużyć tą klasą w linijce 9 zamiast 'div' nie działa :(
 	propTypes: {
-		image: React.PropTypes.object.isRequired,
+		image: React.PropTypes.object.isRequired, // dałem tutaj wcześniej INTEGER zamiast OBJECT ale wtedy nie działało.
 	},
 
 	render: function() {
 		return (
-			React.createElement('div', {},
-				React.createElement('h2', {}, this.props.image.name),
-				React.createElement('img', {src: this.props.image.src})
-			)
-		)
-	},	
-});
-
-var Movie = React.createClass({
-	propTypes: {
-		movie: React.PropTypes.object.isRequired,
-	},
-
-	render: function() {
-		return (
-			React.createElement(Movie, {key: movie_id},
+			React.createElement('div', {key: image.id},
 				React.createElement('h2', {}, this.props.image.name),
 				React.createElement('img', {src: this.props.image.src})
 			)
@@ -28,13 +14,25 @@ var Movie = React.createClass({
 	},
 
 });
-
-var element = React.createElement(GalleryItem);
-ReactDOM.render(element, document.getElementById('app'));
 
 var image = {
-	name: 'Kotek',
-	src: 'http://imgur.com/n80YCzR.png'
+	id: 1,
+	name: 'Kot w opałach 2',
+	src: 'http://onkologiaweterynaryjna.com.pl/public/upload/catalog/product/36/thumb-disease-image_1490453060sphynx_814164_1920.jpg'
 };
 
-var element = React.createElement(GalleryItem, {image: image});
+var image = {
+	id: 2,
+	name: 'Dwa koty po odpałach',
+	src: 'https://manito.pl/images/manito/12000-13000/Interaktywny-KOTEK-DLA-DZIECI-reagujacy-na-dotyk_%5B12802%5D_480.jpg'
+};
+
+var image = {
+	id: 3,
+	name: 'Kot w opałach 2',
+	src: 'http://onkologiaweterynaryjna.com.pl/public/upload/catalog/product/36/thumb-disease-image_1490453060sphynx_814164_1920.jpg'
+};
+
+var element = React.createElement(Movie, {image: image});
+ReactDOM.render(element, document.getElementById('app'));
+
