@@ -30,7 +30,7 @@ var CatList = React.createClass({
     return React.createElement('li', {key: this.props.cat.id},
         React.createElement('h2', {}, this.props.cat.name),
         React.createElement('p', {}, this.props.cat.desc),
-        React.createElement('img', {src: this.props.cat.image.src})
+        React.createElement('img', {src: this.props.cat.image})
     )
   },
 });
