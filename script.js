@@ -2,9 +2,9 @@ var movies = [
     {
         id: 1,
         title: 'Harry Potter',
-        desc: 'Film o czarodzieju',
+        desc: 'Film o czarodziejach',
         image: {
-            src: 'https://i.ytimg.com/vi/pIrOAyXIjak/maxresdefault.jpg'
+            src: 'http://www.exhibitionworld.co.uk/wp-content/uploads/2018/02/EW_Harry-Potter_Featured.jpg'
         }
     },
     {
