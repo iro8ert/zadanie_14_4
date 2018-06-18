@@ -1,60 +1,81 @@
-var cats = [
+var movies = [
     {
-    id: 1,
-	desc: 'opis jednego obrazka',
-	name: 'Kot w opałach 2',
-	image: 'http://onkologiaweterynaryjna.com.pl/public/upload/catalog/product/36/thumb-disease-image_1490453060sphynx_814164_1920.jpg'
-},
+        id: 1,
+        title: 'Harry Potter',
+        desc: 'Film o czarodzieju',
+        image: {
+            src: 'https://i.ytimg.com/vi/pIrOAyXIjak/maxresdefault.jpg'
+        }
+    },
+    {
+        id: 2,
+        title: 'Król Lew',
+        desc: 'Film o królu sawanny',
+        image: {
+            src: 'https://www.joy.pl/u/ic/W1/u/a/17/11/to-pewne-bedzie-nowy-krol-lew-i-znamy-obsade_51.jpeg'
+        }
+    },
+    {
+        id: 3,
+        title: 'Chłopaki nie płaczą',
+        desc: 'Film o facecie w łódce',
+        image: {
+            src: 'https://ocdn.eu/pulscms-transforms/1/U3hktkpTURBXy9mOTA1NmQ3OTJiMTExOTZiNDRhYjAxYTk4ZWQyZDBiMC5qcGeRkwXNASzNAbg'
+        }
+    },
+    {
+        id: 4,
+        title: 'Star Wars',
+        desc: 'Dawno dawno temu, w odległej galaktyce',
+        image: {
+            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/220px-Star_Wars_Logo.svg.png'
+        }
+    },
+    {
+        id: 5,
+        title: 'Kung Fury',
+        desc: 'About Hakerman',
+        image: {
+            src: 'http://1.fwcdn.pl/ph/71/03/707103/614314_1.2.jpg'
+        }
+    }
+];
 
-{
-	id: 2,
-	name: 'Dwa koty po odpałach',
-	desc: 'opis jednego obrazka',
-	image: 'https://manito.pl/images/manito/12000-13000/Interaktywny-KOTEK-DLA-DZIECI-reagujacy-na-dotyk_%5B12802%5D_480.jpg'
-},
 
-{
-	id: 3,
-	name: 'Kot w opałach 2',
-	desc: 'opis jednego obrazka',
-	image: 'http://onkologiaweterynaryjna.com.pl/public/upload/catalog/product/36/thumb-disease-image_1490453060sphynx_814164_1920.jpg'
-}];
-
-
-var CatList = React.createClass({
- 	propTypes: {
-  	cat: React.PropTypes.array.isRequired,
-  	},
+var LiItem = React.createClass({
+  // propTypes: {
+  //   movie: React.PropTypes.object.isRequired,
+  // },
 
   render: function() {
-    return React.createElement('li',
-        React.createElement('h2', {}, this.props.cat.name),
-        React.createElement('p', {}, this.props.cat.desc),
-        React.createElement('img', {src: this.props.cat.image})
+    return React.createElement('li', {key: this.props.movie.id},
+        React.createElement('h2', {}, this.props.movie.title),
+        React.createElement('p', {}, this.props.movie.desc),
+        React.createElement('img', {src: this.props.movie.image.src})
     )
   },
 });
 
 
-var Name = React.createClass({
+var Title = React.createClass({
   render: function () {
     return React.createElement('h1', {},
-      React.createElement('span', {}, this.props.name)
+      React.createElement('span', {}, this.props.title)
     )
   }
 });
 
 
         
-var catsElements = cats.map(function(cat2){
-    return React.createElement(CatList, {cat: cat2, key: cat2.id})
+var moviesElements = movies.map(function(movie2){
+    return React.createElement(LiItem, {movie: movie2})
 })
 
 
         
 var element =
   React.createElement('div', {},
-    React.createElement(Name, {name: 'Lista kotów'}),
-    React.createElement('ul', {}, catsElements)
+    React.createElement(Title, {title: 'Lista filmów'}),
+    React.createElement('ul', {}, moviesElements)
   );   
 ReactDOM.render(element, document.getElementById('app'));
