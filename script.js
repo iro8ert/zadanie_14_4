@@ -27,7 +27,7 @@ var CatList = React.createClass({
   	},
 
   render: function() {
-    return React.createElement('li', {key: this.props.cat.id},
+    return React.createElement('li',
         React.createElement('h2', {}, this.props.cat.name),
         React.createElement('p', {}, this.props.cat.desc),
         React.createElement('img', {src: this.props.cat.image})
@@ -47,7 +47,7 @@ var Name = React.createClass({
 
         
 var catsElements = cats.map(function(cat2){
-    return React.createElement(CatList, {cat: cat2})
+    return React.createElement(CatList, {cat: cat2, key: cat2.id})
 })
 
 
